@@ -7,8 +7,9 @@ public class Actor{
     private ArrayList<String> MoviesIn;
 
     public Actor(){
-        this.Name = null;
-        this.MoviesIn = null;
+        this.Name = "";
+        this.ID = 0;
+        this.MoviesIn = new ArrayList<>();
 
     }
 

@@ -5,8 +5,8 @@ public class Movie {
     private ArrayList<String> ActorsIn;
 
     public Movie(){
-        this.Name = null;
-        this.ActorsIn = null;
+        this.Name = "";
+        this.ActorsIn = new ArrayList<>();
 
     }
 
@@ -37,7 +37,7 @@ public class Movie {
         return ActorsIn;
     }
 
-    public void getActorsIn(ArrayList<String> ActorsIn){
+    public void setActorsIn(ArrayList<String> ActorsIn){
         this.ActorsIn = ActorsIn;
     }
 }
