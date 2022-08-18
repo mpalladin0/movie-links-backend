@@ -5,11 +5,13 @@ public class Actor{
     private int ID;
     private String Name;
     private ArrayList<String> MoviesIn;
+    private boolean Counted;
 
     public Actor(){
         this.Name = "";
         this.ID = 0;
         this.MoviesIn = new ArrayList<>();
+        this.Counted = false;
 
     }
 
@@ -17,6 +19,7 @@ public class Actor{
         this.ID = ID;
         this.Name = Name;
         this.MoviesIn = MoviesIn;
+        this.Counted = false;
     }
 
     public int getID(){

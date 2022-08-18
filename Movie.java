@@ -3,17 +3,20 @@ public class Movie {
     private int ID;
     private String Name;
     private ArrayList<String> ActorsIn;
+    private boolean Counted;
 
     public Movie(){
         this.Name = "";
+        this.ID = 0;
         this.ActorsIn = new ArrayList<>();
-
+        this.Counted = false;
     }
 
     public Movie(int ID, String Name, ArrayList<String> ActorsIn){
         this.ID = ID;
         this.Name = Name;
         this.ActorsIn = ActorsIn;
+        this.Counted = false;
     }
 
     public int getID(){

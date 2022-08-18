@@ -1,11 +1,51 @@
 10
-Johnny_Depp 1 3 Movie1 Movie2 Movie4
-Gal_Gadot 2 2 Movie1 Movie4
-Will_Smith 3 1 Movie5
-John_Cena 4 1 Movie3
-Johnny_Sins 5 1 Movie2
-Scarlet_Johanson 6 3 Movie2 Movie3 Movie4
-Stan_Lee 7 1 Movie4
-Peter_Griffin 8 2 Movie3 Movie4
-Red_Crewmate 9 3 Movie1 Movie2 Movie3
-Walter_White 10 3 Movie2 Movie3 Movie5
+Johnny_Depp 
+1
+3
+Movie1 
+Movie2 
+Movie4
+Gal_Gadot 
+2 
+2 
+Movie1 
+Movie4
+Will_Smith 
+3 
+1 
+Movie5
+John_Cena 
+4 
+1 
+Movie3
+Johnny_Sins 
+5 
+1 
+Movie2
+Scarlet_Johanson 
+6 
+3 
+Movie2 
+Movie3 
+Movie4
+Stan_Lee 
+7 
+1 
+Movie4
+Peter_Griffin 
+8 
+2 
+Movie3 
+Movie4
+Red_Crewmate 
+9 
+3 
+Movie1 
+Movie2 
+Movie3
+Walter_White 
+10 
+3 
+Movie2 
+Movie3 
+Movie5
