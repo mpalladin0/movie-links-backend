@@ -76,18 +76,102 @@ public class MovieLinksBackend {
 
 
     public static void recursivePlay(Actor startingActor, Actor endingActor, HashMap<Integer, Actor> actors, HashMap<Integer, Movie> movies){
-        
+
+
+        if (startingActor.getID()==endingActor.getID()){
+            StdOut.println("Congratulations! You found a connection in " + counter + " connections!");
+        }
+
+        else{ 
+
+        StdOut.println();
         StdOut.println(startingActor.getName());
+        startingActor.setCounted();
         for(int i=0; i< startingActor.getMoviesIn().size();i++){
-            StdOut.println(i+1 + ". " + startingActor.getMoviesIn().get(i));
+            if (isThereMovie(startingActor.getMoviesIn().get(i), movies)==false){
+                StdOut.println(i+1 + ". " + startingActor.getMoviesIn().get(i));
+            } else {
+                StdOut.println(i+1 + ". Chosen Already");
+            }
+
+            
         }
         StdOut.print("Choose the movie => ");
-        int movieChoice = Integer.parseInt(StdIn.readLine());     
-        
-        
+        int movieChoice = Integer.parseInt(StdIn.readLine());
+        Movie chosenmovie = findMovie(startingActor.getMoviesIn().get(movieChoice-1), movies);
+        StdOut.println();
+        StdOut.println(chosenmovie.getName());
+        chosenmovie.setCounted();
+        for (int i=0;i<chosenmovie.getActorsIn().size();i++){
+            if(isThereActor(chosenmovie.getActorsIn().get(i), actors)==false){
+                StdOut.println(i+1 + ". " + chosenmovie.getActorsIn().get(i));
+            } else {
+                StdOut.println(i+1 + ". Chosen Already");
+            }
+        }
 
-       
+        StdOut.print("Choose an actor/actress => ");
+        int actorChoice = Integer.parseInt(StdIn.readLine());
+        
+        Actor nextActor = findActor(chosenmovie.getActorsIn().get(actorChoice-1), actors);
 
+        if (nextActor.getID()==endingActor.getID()){
+            counter++;
+            StdOut.println("Congratulations! You found a connection in " + counter + " connection(s)!");
+        }
+
+        else{
+            counter++;
+
+        recursivePlay(nextActor, endingActor, actors, movies);
+        }
+
+        }
+        
+    }
+
+    public static boolean isThereActor(String actorName, HashMap<Integer, Actor> actors){
+        for (int ID : actors.keySet()){
+            if (actors.get(ID).getName().equals(actorName)){
+                if(actors.get(ID).getCounted()==true){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean isThereMovie(String movieName, HashMap<Integer, Movie> movies){
+        for (int ID : movies.keySet()){
+            if (movies.get(ID).getName().equals(movieName)){
+                if (movies.get(ID).getCounted()==true){
+                    return true;
+                }
+            }
+        }
+
+
+        return false;
+    }
+
+    public static Movie findMovie(String movieName, HashMap<Integer, Movie> movies){
+        for (int ID : movies.keySet()){
+            if (movies.get(ID).getName().equalsIgnoreCase(movieName)){
+                return movies.get(ID);
+            }
+        }
+
+        return null;
+    }
+
+    public static Actor findActor(String actorName, HashMap<Integer, Actor> actors){
+        for (int ID : actors.keySet()){
+            if (actors.get(ID).getName().equalsIgnoreCase(actorName)){
+                return actors.get(ID);
+            }
+        }
+
+        return null;
     }
     
 }

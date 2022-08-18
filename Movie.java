@@ -43,4 +43,11 @@ public class Movie {
     public void setActorsIn(ArrayList<String> ActorsIn){
         this.ActorsIn = ActorsIn;
     }
+    public void setCounted(){
+        this.Counted = true;
+    }
+
+    public boolean getCounted(){
+        return Counted;
+    }
 }
