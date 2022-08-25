@@ -87,15 +87,15 @@ public class MovieLinksBackend {
         StdOut.println();
         StdOut.println(startingActor.getName());
         startingActor.setCounted();
+
         for(int i=0; i< startingActor.getMoviesIn().size();i++){
             if (isThereMovie(startingActor.getMoviesIn().get(i), movies)==false){
                 StdOut.println(i+1 + ". " + startingActor.getMoviesIn().get(i));
-            } else {
-                StdOut.println(i+1 + ". Chosen Already");
             }
-
-            
         }
+
+        
+
         StdOut.print("Choose the movie => ");
         int movieChoice = Integer.parseInt(StdIn.readLine());
         Movie chosenmovie = findMovie(startingActor.getMoviesIn().get(movieChoice-1), movies);
@@ -105,8 +105,6 @@ public class MovieLinksBackend {
         for (int i=0;i<chosenmovie.getActorsIn().size();i++){
             if(isThereActor(chosenmovie.getActorsIn().get(i), actors)==false){
                 StdOut.println(i+1 + ". " + chosenmovie.getActorsIn().get(i));
-            } else {
-                StdOut.println(i+1 + ". Chosen Already");
             }
         }
 
@@ -116,7 +114,7 @@ public class MovieLinksBackend {
         Actor nextActor = findActor(chosenmovie.getActorsIn().get(actorChoice-1), actors);
 
         if (nextActor.getID()==endingActor.getID()){
-            counter++;
+            
             StdOut.println("Congratulations! You found a connection in " + counter + " connection(s)!");
         }
 
